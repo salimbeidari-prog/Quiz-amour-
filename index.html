@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Une petite question ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:linear-gradient(145deg,#fff0f5,#ffe1eb,#fff8fa);font-family:Arial,sans-serif;color:#3b1725}
+.wrap{width:min(560px,100%);margin:auto;padding:30px 18px 50px}
+.hero{text-align:center;padding:20px 10px 24px}
+.heart{font-size:62px;animation:pulse 1.5s infinite}
+h1{font-size:32px;line-height:1.15;margin:12px 0}
+.hero p{color:#805264;font-size:17px;line-height:1.5}
+.progress{height:8px;background:#f5cbd8;border-radius:99px;overflow:hidden;margin:15px 0 25px}
+.bar{height:100%;width:10%;background:#e83e73;border-radius:99px;transition:width .35s}
+.card{background:#ffffffdf;border-radius:28px;padding:30px 22px;box-shadow:0 18px 55px #7e1f4320;text-align:center}
+.question{display:none}
+.question.active{display:block}
+.mini{font-size:14px;font-weight:bold;color:#d52f67;margin-bottom:12px}
+h2{font-size:28px;line-height:1.25;margin:8px 0 12px}
+.question p{color:#754657;font-size:16px;line-height:1.5;margin-bottom:26px}
+.buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+button{border:0;border-radius:999px;padding:14px 28px;font-size:17px;font-weight:bold;cursor:pointer;min-width:130px;min-height:52px}
+.yes{background:#e83e73;color:white;box-shadow:0 8px 20px #e83e7330}
+.no{background:white;color:#b62e5d;border:1px solid #efb4c7}
+.answer{display:none;font-size:18px;font-weight:bold;color:#6b2941;line-height:1.5;margin-top:20px}
+.answer strong{display:block;color:#e83e73;font-size:30px;margin-bottom:8px}
+.final{display:none;text-align:center}
+.final .big{font-size:50px}
+.final h2{color:#e83e73}
+.restart{margin:22px auto 0;background:#3b1725;color:white}
+@keyframes pulse{50%{transform:scale(1.08)}}
+@media(prefers-reduced-motion:reduce){.heart{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero">
+<div class="heart">❤️</div>
+<h1>J’ai une petite question pour toi…</h1>
+<p>Et attention : les réponses sont peut-être un peu truquées. 😂❤️</p>
+<div class="progress"><div class="bar" id="bar"></div></div>
+</section>
+
+<section class="card">
+<div class="question" data-index="0">
+      <div class="mini">Question 1 / 10</div>
+      <h2>Est-ce que tu m’aimes ?</h2>
+      <p>Réfléchis bien avant de répondre… 👀</p>
+      <div class="buttons">
+        <button type="button" class="yes">OUI ❤️</button>
+        <button type="button" class="no">NON 😭</button>
+      </div>
+    </div>
+<div class="question" data-index="1">
+      <div class="mini">Question 2 / 10</div>
+      <h2>Est-ce que tu me pardonnes ?</h2>
+      <p>Même si j’ai peut-être fait une petite bêtise… 🥹</p>
+      <div class="buttons">
+        <button type="button" class="yes">OUI ❤️</button>
+        <button type="button" class="no">NON 😭</button>
+      </div>
+    </div>
+<div class="question" data-index="2">
+      <div class="mini">Question 3 / 10</div>
+      <h2>Tu veux rester avec moi ?</h2>
+      <p>Cette question compte beaucoup pour moi… 🥺</p>
+      <div class="buttons">
+        <button type="button" class="yes">OUI ❤️</button>
+        <button type="button" class="no">NON 😭</button>
+      </div>
+    </div>
+<div class="question" data-index="3">
+      <div class="mini">Question 4 / 10</div>
+      <h2>Tu es sûre de ton choix ?</h2>
+      <p>Parce que moi, je suis sûr de toi. ❤️</p>
+      <div class="buttons">
+        <button type="button" class="yes">OUI ❤️</button>
+        <button type="button" class="no">NON 😭</button>
+      </div>
+    </div>
+<div class="question" data-index="4">
+      <div class="mini">Question 5 / 10</div>
+      <h2>Tu es sûre que tu m’aimes ?</h2>
+      <p>Genre… vraiment sûre ? 👀❤️</p>
+      <div class="buttons">
+        <button type="button" class="yes">OUI ❤️</button>
+        <button type="button" class="no">NON 😭</button>
+      </div>
+    </div>
+<div class="question" data-index="5">
+      <div class="mini">Question 6 / 10</div>
+      <h2>Tu es sûre, sûre que tu m’aimes ?</h2>
+      <p>Parce que là, il faut être très précise madame 😭</p>
+      <div class="buttons">
+        <button type="button" class="yes">OUI ❤️</button>
+        <button type="button" class="no">NON 😭</button>
+      </div>
+    </div>
+<div class="question" data-index="6">
+      <div class="mini">Question 7 / 10</div>
+      <h2>Est-ce que tu comptes rester à mes côtés ?</h2>
+      <p>Même quand je vais être insupportable ? 😂</p>
+      <div class="buttons">
+        <button type="button" class="yes">OUI ❤️</button>
+        <button type="button" class="no">NON 😭</button>
+      </div>
+    </div>
+<div class="question" data-index="7">
+      <div class="mini">Question 8 / 10</div>
+      <h2>Est-ce que tu me choisis encore et encore ?</h2>
+      <p>Même après toutes mes petites bêtises ? 🥹</p>
+      <div class="buttons">
+        <button type="button" class="yes">OUI ❤️</button>
+        <button type="button" class="no">NON 😭</button>
+      </div>
+    </div>
+<div class="question" data-index="8">
+      <div class="mini">Question 9 / 10</div>
+      <h2>Est-ce que tu es SUR-SUR-SÛRE que tu m’aimes ?</h2>
+      <p>Réfléchis bien… aucune possibilité de revenir en arrière 😭❤️</p>
+      <div class="buttons">
+        <button type="button" class="yes">OUI ❤️</button>
+        <button type="button" class="no">NON 😭</button>
+      </div>
+    </div>
+<div class="question" data-index="9">
+      <div class="mini">Question 10 / 10</div>
+      <h2>Est-ce que tu es SUR-SUR-SUR-SÛRE que tu m’aimes ?</h2>
+      <p>Dernière question. Là, même les scientifiques doivent être convaincus. 🧪❤️</p>
+      <div class="buttons">
+        <button type="button" class="yes">OUI ❤️</button>
+        <button type="button" class="no">NON 😭</button>
+      </div>
+    </div>
+<div class="final" id="final">
+<div class="big">❤️</div>
+<h2>Voilà, c’est officiel.</h2>
+<p>Après 10 questions, une chose est certaine :</p>
+<h2>Tu m’aimes. 😭❤️</h2>
+<p>Et moi, je t’aime encore plus.</p>
+<button type="button" class="restart" id="restart">Recommencer ❤️</button>
+</div>
+</section>
+</div>
+
+<script>
+const questions = document.querySelectorAll('.question');
+const results = ['Je savais que tu m’aimais 😌❤️',
+'Merci mon cœur, je savais que tu avais un grand cœur ❤️',
+'Alors c’est décidé : toi + moi ❤️',
+'Voilà. Maintenant tu ne peux plus t’échapper 😭❤️',
+'Bon… je voulais juste être certain 😂❤️',
+'D’accord, je te crois… enfin je crois 😭❤️',
+'C’est tout ce que je voulais entendre ❤️',
+'Alors viens là mon amour ❤️',
+'OUI. C’est enregistré. Tu m’aimes. 😂❤️',
+'Parfait. Verdict officiel : tu m’aimes à l’infini. ∞❤️'];
+const bar = document.getElementById('bar');
+const final = document.getElementById('final');
+let current = 0;
+
+function showAnswer() {
+  const q = questions[current];
+  const buttons = q.querySelector('.buttons');
+  let answer = q.querySelector('.answer');
+  if (!answer) {
+    answer = document.createElement('div');
+    answer.className = 'answer';
+    q.appendChild(answer);
+  }
+  answer.innerHTML = '<strong>OUI ❤️</strong>' + results[current];
+  buttons.style.display = 'none';
+  answer.style.display = 'block';
+
+  setTimeout(() => {
+    q.classList.remove('active');
+    current++;
+    if (current < questions.length) {
+      questions[current].classList.add('active');
+      bar.style.width = ((current + 1) * 10) + '%';
+    } else {
+      final.style.display = 'block';
+      bar.style.width = '100%';
+    }
+  }, 1500);
+}
+
+questions.forEach(q => {
+  q.querySelector('.yes').addEventListener('click', showAnswer);
+  q.querySelector('.no').addEventListener('click', showAnswer);
+});
+
+document.getElementById('restart').addEventListener('click', () => {
+  current = 0;
+  questions.forEach(q => {
+    q.classList.remove('active');
+    q.querySelector('.buttons').style.display = 'flex';
+    const answer = q.querySelector('.answer');
+    if (answer) answer.remove();
+  });
+  questions[0].classList.add('active');
+  final.style.display = 'none';
+  bar.style.width = '10%';
+});
+</script>
+</body>
+</html>
